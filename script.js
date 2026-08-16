@@ -1,46 +1,75 @@
-// Sticky Navigation Menu
-let nav = document.querySelector("nav");
-let scrollBtn = document.querySelector(".scroll-button a");
+/* ============================================================
+   Poonam Portfolio - Intro Video Popup
+   Shows your video centered in a popup once, when the site opens.
+   Drop-in script — add this line before </body>:
+       <script src="intro-video.js"></script>
+   Put your video file at: videos/intro.mp4
+   ============================================================ */
 
-// Show/hide sticky navigation and scroll button based on scroll position
-window.onscroll = function () {
-  if (document.documentElement.scrollTop > 20) {
-    nav.classList.add("sticky");
-    scrollBtn.style.display = "block";
-  } else {
-    nav.classList.remove("sticky");
-    scrollBtn.style.display = "none";
+(function () {
+  const style = document.createElement("style");
+  style.textContent = `
+    #poonamVideoOverlay{
+      position:fixed; inset:0; background:rgba(14,36,49,.85);
+      display:flex; align-items:center; justify-content:center;
+      z-index:2000; opacity:0; pointer-events:none; transition:opacity .4s ease;
+    }
+    #poonamVideoOverlay.show{ opacity:1; pointer-events:auto; }
+    #poonamVideoBox{
+      position:relative; max-width:340px; width:88%;
+      background:#0E2431; border-radius:16px; padding:14px;
+      box-shadow:0 10px 40px rgba(0,0,0,.5);
+      transform:scale(.92); transition:transform .4s ease;
+    }
+    #poonamVideoOverlay.show #poonamVideoBox{ transform:scale(1); }
+    #poonamVideoBox video{
+      width:100%; border-radius:10px; display:block; background:#000;
+    }
+    #poonamVideoClose{
+      position:absolute; top:-14px; right:-14px; width:32px; height:32px;
+      border-radius:50%; background:#4070f4; color:#fff; border:none;
+      font-size:16px; cursor:pointer; box-shadow:0 3px 8px rgba(0,0,0,.3);
+    }
+    #poonamVideoBox p{
+      color:#fff; text-align:center; margin-top:10px; font-size:13px;
+      font-family:Poppins,Arial,sans-serif; opacity:.8;
+    }
+  `;
+  document.head.appendChild(style);
+
+  const overlay = document.createElement("div");
+  overlay.id = "poonamVideoOverlay";
+  overlay.innerHTML = `
+    <div id="poonamVideoBox">
+      <button id="poonamVideoClose">✕</button>
+      <video id="poonamIntroVideo" src="videos/intro.mp4" playsinline muted autoplay></video>
+      <p>Tap video to unmute</p>
+    </div>
+  `;
+  document.body.appendChild(overlay);
+
+  const video = overlay.querySelector("#poonamIntroVideo");
+  const closeBtn = overlay.querySelector("#poonamVideoClose");
+
+  function closeVideo() {
+    overlay.classList.remove("show");
+    video.pause();
   }
-};
 
-// Side Navigation Menu
-let body = document.querySelector("body");
-let navBar = document.querySelector(".navbar");
-let menuBtn = document.querySelector(".menu-btn");
-let cancelBtn = document.querySelector(".cancel-btn");
+  // Show once page finishes loading
+  window.addEventListener("load", () => {
+    overlay.classList.add("show");
+    video.play().catch(() => {}); // autoplay may need muted, already set
+  });
 
-// Open side navigation
-menuBtn.onclick = function () {
-  navBar.classList.add("active");
-  menuBtn.style.opacity = "0";
-  menuBtn.style.pointerEvents = "none";
-  body.style.overflow = "hidden";
-  scrollBtn.style.pointerEvents = "none";
-};
+  // Tap video to toggle sound on
+  video.addEventListener("click", () => {
+    video.muted = !video.muted;
+  });
 
-const hideNavMenu = () => {
-  navBar.classList.remove("active");
-  menuBtn.style.opacity = "1";
-  menuBtn.style.pointerEvents = "auto";
-  body.style.overflow = "auto";
-  scrollBtn.style.pointerEvents = "auto";
-};
-
-// Close side navigation
-cancelBtn.onclick = hideNavMenu;
-
-// Close side navigation when a menu link is clicked
-let navLinks = document.querySelectorAll(".menu li a");
-navLinks.forEach((link) => {
-  link.addEventListener("click", hideNavMenu);
-});
+  closeBtn.addEventListener("click", closeVideo);
+  overlay.addEventListener("click", (e) => {
+    if (e.target === overlay) closeVideo();
+  });
+  video.addEventListener("ended", closeVideo);
+})();
