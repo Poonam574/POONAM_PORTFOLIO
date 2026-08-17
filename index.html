@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8" />
-    <title>Responsive Portfolio Website HTML CSS| CodingNepal</title>
+    <title>Responsive Portfolio Website HTML CSS | CodingNepal</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -63,7 +63,7 @@
               IntelliJ IDEA, Postman, and Docker.
             </p>
             <div class="button">
-              <a href="PoonamResume.pdf" target="_blank"><button>Download CV</button></a>
+              <a href="PoonamResume.pdf" download><button>Download CV</button></a>
             </div>
           </div>
         </div>
@@ -76,22 +76,22 @@
         <div class="title"><span>My Skills</span></div>
         <div class="skills-details">
           <div class="boxes">
-            <div class="box"><div class="topic">Java</div></div>
-            <div class="box"><div class="topic">Spring Boot</div></div>
-            <div class="box"><div class="topic">MySQL</div></div>
-            <div class="box"><div class="topic">HTML</div></div>
-            <div class="box"><div class="topic">CSS</div></div>
-            <div class="box"><div class="topic">JavaScript</div></div>
-            <div class="box"><div class="topic">JSTL</div></div>
+            <div class="box"><div class="icon"><i class="fab fa-java"></i></div><div class="topic">Java</div></div>
+            <div class="box"><div class="icon"><i class="fas fa-leaf"></i></div><div class="topic">Spring Boot</div></div>
+            <div class="box"><div class="icon"><i class="fas fa-database"></i></div><div class="topic">MySQL</div></div>
+            <div class="box"><div class="icon"><i class="fab fa-html5"></i></div><div class="topic">HTML</div></div>
+            <div class="box"><div class="icon"><i class="fab fa-css3-alt"></i></div><div class="topic">CSS</div></div>
+            <div class="box"><div class="icon"><i class="fab fa-js-square"></i></div><div class="topic">JavaScript</div></div>
+            <div class="box"><div class="icon"><i class="fas fa-tags"></i></div><div class="topic">JSTL</div></div>
           </div>
         </div>
         <div class="title" style="margin-top:40px;"><span>Tools</span></div>
         <div class="skills-details">
           <div class="boxes">
-            <div class="box"><div class="topic">Postman</div></div>
-            <div class="box"><div class="topic">GitHub</div></div>
-            <div class="box"><div class="topic">Docker</div></div>
-            <div class="box"><div class="topic">Spring Security</div></div>
+            <div class="box"><div class="icon"><i class="fas fa-vial"></i></div><div class="topic">Postman</div></div>
+            <div class="box"><div class="icon"><i class="fab fa-github"></i></div><div class="topic">GitHub</div></div>
+            <div class="box"><div class="icon"><i class="fab fa-docker"></i></div><div class="topic">Docker</div></div>
+            <div class="box"><div class="icon"><i class="fas fa-shield-alt"></i></div><div class="topic">Spring Security</div></div>
           </div>
         </div>
       </div>
@@ -103,25 +103,29 @@
         <div class="title"><span>My Projects</span></div>
         <div class="boxes">
           <div class="box">
-            <img src="images/ai.png" alt="Smart AI Mock Interview" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <img src="images/ai.png" alt="Smart AI Mock Interview" class="project-img" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <div class="icon"><i class="fas fa-robot"></i></div>
             <div class="topic">Smart AI Mock Interview</div>
             <p>Built using Java, Spring Boot, REST APIs with AI-based interview system and MySQL integration.</p>
             <a href="https://github.com/Poonam574/Smart_Ai_Mock_Intriews/tree/main/SmartLMS/SmartLMS" target="_blank"><button>View Project</button></a>
           </div>
           <div class="box">
-            <img src="images/hotel.png" alt="Hospitality Service System" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <img src="images/hotel.png" alt="Hospitality Service System" class="project-img" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <div class="icon"><i class="fas fa-hotel"></i></div>
             <div class="topic">Hospitality Service System</div>
             <p>Developed a hospitality management system using Java, Spring Boot, REST APIs, and MySQL for booking, service management, and customer handling.</p>
             <a href="https://github.com/Poonam574/Hospitality_Service" target="_blank"><button>View Project</button></a>
           </div>
           <div class="box">
-            <img src="images/pdf.png" alt="Transaction PDF Export System" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <img src="images/pdf.png" alt="Transaction PDF Export System" class="project-img" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <div class="icon"><i class="fas fa-file-pdf"></i></div>
             <div class="topic">Transaction PDF Export System</div>
             <p>Developed a system using Java and Spring Boot to generate and export transaction reports in PDF format with MySQL integration.</p>
             <a href="https://github.com/Poonam574/TransactionPdfExport/tree/master" target="_blank"><button>View Project</button></a>
           </div>
           <div class="box">
-            <img src="images/ganapati.png" alt="Ganapati Draw Project" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <img src="images/ganapati.png" alt="Ganapati Draw Project" class="project-img" style="width:100%;border-radius:8px;margin-bottom:10px;">
+            <div class="icon"><i class="fas fa-dice"></i></div>
             <div class="topic">Ganapati Draw Project</div>
             <p>Built using Java, Spring Boot, REST APIs with AI-based interview system and MySQL integration.</p>
             <a href="https://github.com/Poonam574/GanapatiProject" target="_blank"><button>View Project</button></a>
@@ -135,8 +139,14 @@
       <div class="content">
         <div class="title"><span>Contact Me</span></div>
         <div class="text">
-          <div class="topic">📞 <a href="tel:+918088138668">+91 8088138668</a></div>
-          <p><a href="mailto:poonamkalal476@gmail.com">poonamkalal476@gmail.com</a></p>
+          <div class="contact-info">
+            <div class="topic">📞 <a href="tel:+918088138668"><strong>+91 8088138668</strong></a></div>
+            <p>
+              <a href="mailto:poonamkalal476@gmail.com">
+                <i class="fas fa-envelope"></i> <strong>poonamkalal476@gmail.com</strong>
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </section>
