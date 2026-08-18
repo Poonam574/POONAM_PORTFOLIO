@@ -39,7 +39,7 @@ nav {
 }
 
 nav.sticky {
-  background: #4070f4;
+  background: #009688;
   padding: 13px 0;
 }
 
@@ -54,7 +54,7 @@ nav .navbar {
 nav .navbar .logo a {
   font-weight: 500;
   font-size: 35px;
-  color: #4070f4;
+  color: #009688;
 }
 
 nav.sticky .navbar .logo a {
@@ -143,16 +143,32 @@ nav.sticky .menu-btn {
 }
 
 .home .text-two {
-  color: #0E2431;
-  font-size: 75px;
-  font-weight: 600;
-  margin-left: -3px;
+    color: #0E2431;
+    font-size: 75px;
+    font-weight: 600;
+    margin-left: -3px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid #4070f4;
+    width: 0;
+    animation: typing 3s steps(12) forwards, blink 0.7s infinite;
 }
 
+/* Typing effect */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Cursor blinking */
+@keyframes blink {
+    50% { border-color: transparent; }
+}
 .home .text-three {
   font-size: 40px;
   margin: 5px 0;
-  color: #4070f4;
+  color: #254e4a;
 }
 
 .home .text-four {
@@ -221,7 +237,7 @@ section .title span::after {
   position: absolute;
   height: 3px;
   width: 100%;
-  background: #4070f4;
+  background: #009688;
   left: 0;
   bottom: 0;
 }
@@ -269,7 +285,7 @@ section .button button {
   border-radius: 4px;
   font-size: 25px;
   font-weight: 400;
-  background: #4070f4;
+  background: #009688;
   color: #fff;
   border: 2px solid transparent;
   cursor: pointer;
@@ -351,29 +367,29 @@ section .button button:hover {
 .services .boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  gap: 20px; /* spacing between boxes */
 }
 
 .services .boxes .box {
-  margin: 5px 0;
-  width: calc(100% / 3 - 20px);
+  flex: 0 0 calc(33.33% - 20px); /* 3 boxes per row */
   text-align: center;
   border-radius: 12px;
-  padding: 10px 10px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
-  cursor: default;
+  padding: 15px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.12);
   transition: all 0.4s ease;
 }
 
+/* Hover */
 .services .boxes .box:hover {
   background: #4070f4;
   color: #fff;
 }
 
+/* Icon */
 .services .boxes .box .icon {
   height: 50px;
   width: 50px;
-  background: #4070f4;
+  background: #009688;
   border-radius: 50%;
   text-align: center;
   line-height: 50px;
@@ -383,20 +399,25 @@ section .button button:hover {
   transition: all 0.4s ease;
 }
 
-.boxes .box:hover .icon {
-  background-color: #fff;
+/* Icon hover */
+.services .boxes .box:hover .icon {
+  background: #fff;
   color: #4070f4;
 }
 
-.services .boxes .box:hover .topic,
-.services .boxes .box:hover p {
-  color: #0E2431;
-  transition: all 0.4s ease;
-}
-
+/* Text hover */
 .services .boxes .box:hover .topic,
 .services .boxes .box:hover p {
   color: #fff;
+}
+
+/* Project Image */
+.project-img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
 }
 
 /* Contact Me CSS */
@@ -417,7 +438,7 @@ section .button button:hover {
 
 /* Footer CSS */
 footer {
-  background: #4070f4;
+  background: #009688;
   padding: 15px 0;
   text-align: center;
   font-family: 'Poppins', sans-serif;
@@ -444,7 +465,7 @@ footer .text span a:hover {
   bottom: 20px;
   right: 20px;
   color: #fff;
-  background: #4070f4;
+  background: #009688;
   padding: 7px 12px;
   font-size: 18px;
   border-radius: 6px;
